@@ -25,7 +25,7 @@ oReq.onload = function(e) {
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="${carrito.catalogo[i].Promocionar=='x'?'recomendadosi':'recomendado'}"><img src="img/estrella.svg" class="estrella">Más vendido</div>
-                                        <img class="foto-portada" src="img/fotos/${carrito.catalogo[i].Categoria}/${carrito.catalogo[i].Codigo}.jpg" alt="imagen-${carrito.catalogo[i].Producto}">
+                                        <img class="foto-portada" src="img/fotos/${carrito.catalogo[i].Categoria}/${carrito.catalogo[i].Subcategoria}/${carrito.catalogo[i].Codigo}.jpg" alt="Imagen - ${carrito.catalogo[i].Producto}">
                                     </div>
                                     <div class="col-12 text-left">
                                         <p class="tx-bold tx-negro mb-0 pt-2">${carrito.catalogo[i].Producto}</p>
@@ -48,7 +48,7 @@ oReq.onload = function(e) {
                                                 
                                                 
                                                 
-                                                Referencia: https://casaingco.github.io/img/fotos/${carrito.catalogo[i].Categoria}/${carrito.catalogo[i].Codigo}.jpg
+                                                Referencia: casaingco.github.io/img/fotos/${carrito.catalogo[i].Categoria}/${carrito.catalogo[i].Subcategoria}/${carrito.catalogo[i].Codigo}.jpg
                                                 
                                                 
                                                 
@@ -88,7 +88,7 @@ oReq.onload = function(e) {
                                 </div>
                                 <!-- Imagen -->
                                 <div class="text-center" style="background-color: #ffffff">
-                                    <img class="foto-detalle" src="img/fotos/${contenido.detalle[i].Categoria}/${contenido.detalle[i].Codigo}.jpg" alt="imagen-${contenido.detalle[i].Producto}">
+                                    <img class="foto-detalle" src="img/fotos/${contenido.detalle[i].Categoria}/${contenido.detalle[i].Subcategoria}/${contenido.detalle[i].Codigo}.jpg" alt="Imagen - ${contenido.detalle[i].Producto}">
                                 </div>
                                 <div class="${contenido.detalle[i].Promocionar=='x'?'recomendadosi':'recomendado'}"><img src="img/estrella.svg" class="estrella">Más vendido</div>
                                 <!-- Contenido -->
@@ -129,7 +129,7 @@ oReq.onload = function(e) {
                                                 
                                                 
                                                 
-                                                Referencia: https://casaingco.github.io/img/fotos/${carrito.catalogo[i].Categoria}/${carrito.catalogo[i].Codigo}.jpg
+                                                Referencia: casaingco.github.io/img/fotos/${contenido.detalle[i].Categoria}/${contenido.detalle[i].Subcategoria}/${contenido.detalle[i].Codigo}.jpg
                                                 
                                                 
                                                 
