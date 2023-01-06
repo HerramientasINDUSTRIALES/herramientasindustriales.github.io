@@ -25,11 +25,11 @@ oReq.onload = function(e) {
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="${carrito.catalogo[i].Promocionar=='x'?'recomendadosi':'recomendado'}"><img src="img/estrella.svg" class="estrella">Más vendido</div>
-                                        <img class="foto-portada" src="img/fotos/${carrito.catalogo[i].Categoria}/${carrito.catalogo[i].Código}.jpg" alt="imagen-${carrito.catalogo[i].Producto}">
+                                        <img class="foto-portada" src="img/fotos/${carrito.catalogo[i].Categoria}/${carrito.catalogo[i].Codigo}.jpg" alt="imagen-${carrito.catalogo[i].Producto}">
                                     </div>
                                     <div class="col-12 text-left">
                                         <p class="tx-bold tx-negro mb-0 pt-2">${carrito.catalogo[i].Producto}</p>
-                                        <p class="caption tx-gris mb-2">${carrito.catalogo[i].Código}</p>
+                                        <p class="caption tx-gris mb-2">${carrito.catalogo[i].Codigo}</p>
                                         <p>Precio: $${carrito.catalogo[i].Precio}</p>
                                         <div class="text-center">
                                             <a href="https://api.whatsapp.com/send?phone=593962854170&text=¡Hola! 👋🏼 Estoy interesado en:
@@ -40,7 +40,7 @@ oReq.onload = function(e) {
                                                 
                                                 
                                                 
-                                                Código: _${carrito.catalogo[i].Código}_
+                                                Código: _${carrito.catalogo[i].Codigo}_
                                                 
                                                 
                                                 
@@ -51,7 +51,7 @@ oReq.onload = function(e) {
                                                 😃 ¿Me puedes ayudar con más información?" target="blank" class="btn bt-comprar mb-3" onclick="gtag('event', 'Click', { 'event_category': 'Comprar', 'event_label': '${carrito.catalogo[i].Producto}'});">
                                                 Comprar
                                             </a>
-                                            <a href="#" class="bt-detalle" data-toggle="modal" data-target="#${carrito.catalogo[i].Código}" onclick="gtag('event', 'Click', { 'event_category': 'Detalle', 'event_label': '${carrito.catalogo[i].Producto}'});">
+                                            <a href="#" class="bt-detalle" data-toggle="modal" data-target="#${carrito.catalogo[i].Codigo}" onclick="gtag('event', 'Click', { 'event_category': 'Detalle', 'event_label': '${carrito.catalogo[i].Producto}'});">
                                             <img src="img/ojo.svg" class="icono-ver">Ver detalle</a>
                                         </div>
                                     </div>
@@ -73,7 +73,7 @@ oReq.onload = function(e) {
             var template = ``;
             for (var i in contenido.detalle) {
                 template += `
-                    <div class="modal fade" id="${contenido.detalle[i].Código}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal fade" id="${contenido.detalle[i].Codigo}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered" role="document">
                             <div class="modal-content">
                                 <!-- Cerrar -->
@@ -84,7 +84,7 @@ oReq.onload = function(e) {
                                 </div>
                                 <!-- Imagen -->
                                 <div class="text-center" style="background-color: #ffffff">
-                                    <img class="foto-detalle" src="img/fotos/${contenido.detalle[i].Categoria}/${contenido.detalle[i].Código}.jpg" alt="imagen-${contenido.detalle[i].Producto}">
+                                    <img class="foto-detalle" src="img/fotos/${contenido.detalle[i].Categoria}/${contenido.detalle[i].Codigo}.jpg" alt="imagen-${contenido.detalle[i].Producto}">
                                 </div>
                                 <div class="${contenido.detalle[i].Promocionar=='x'?'recomendadosi':'recomendado'}"><img src="img/estrella.svg" class="estrella">Más vendido</div>
                                 <!-- Contenido -->
@@ -93,7 +93,7 @@ oReq.onload = function(e) {
                                         <div class="row align-items-center">
                                             <div class="col-9 text-left">
                                                 <h6 class="tx-bold tx-negro mb-0">${contenido.detalle[i].Producto}</h6>
-                                                <p class="tx-gris mb-0">${contenido.detalle[i].Código}</p>
+                                                <p class="tx-gris mb-0">${contenido.detalle[i].Codigo}</p>
                                             </div>
                                             <div class="col-3 text-right pl-0">
                                                 <h6 class="mb-0"><span class="tx-bold">Precio:</span> <span class="tx-gris">$${contenido.detalle[i].Precio}<span></h6>
@@ -101,7 +101,7 @@ oReq.onload = function(e) {
                                         </div>
                                         <div class="text-left pt-4">
                                             <h6 class="tx-bold">Características:</h6>
-                                            <p class="tx-gris">${contenido.detalle[i].Características}</p>
+                                            <p class="tx-gris">${contenido.detalle[i].Caracteristicas}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -117,7 +117,7 @@ oReq.onload = function(e) {
                                                 
                                                 
                                                 
-                                                Código: _${contenido.detalle[i].Código}_
+                                                Código: _${contenido.detalle[i].Codigo}_
                                                 
                                                 
                                                 

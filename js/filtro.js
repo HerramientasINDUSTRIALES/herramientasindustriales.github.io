@@ -49,7 +49,7 @@ $(document).ready(function(){
 	});
 
 	// Mostrar todos Electricas
-	$('.EléctricasTodo').click(function(){
+	$('.ElectricasTodo').click(function(){
 		// Función de ocultar productos
 		$('.filtro').css('transform', 'scale(0)');
 		function hideProduct(){
@@ -58,7 +58,7 @@ $(document).ready(function(){
 
 		// Función de mostrar productos
 		function showProduct(){
-			$('.Eléctricas').show();
+			$('.Electricas').show();
 			$('.filtro').css('transform', 'scale(1)');
 		} setTimeout(showProduct,200);
 	});
@@ -79,7 +79,7 @@ $(document).ready(function(){
 	});
 
 	// Mostrar todos Medicion
-	$('.MediciónTodo').click(function(){
+	$('.MedicionTodo').click(function(){
 		// Función de ocultar productos
 		$('.filtro').css('transform', 'scale(0)');
 		function hideProduct(){
@@ -88,13 +88,13 @@ $(document).ready(function(){
 
 		// Función de mostrar productos
 		function showProduct(){
-			$('.Medición').show();
+			$('.Medicion').show();
 			$('.filtro').css('transform', 'scale(1)');
 		} setTimeout(showProduct,200);
 	});
 
 	// Mostrar todos Elevacion
-	$('.ElevaciónTodo').click(function(){
+	$('.ElevacionTodo').click(function(){
 		// Función de ocultar productos
 		$('.filtro').css('transform', 'scale(0)');
 		function hideProduct(){
@@ -103,7 +103,7 @@ $(document).ready(function(){
 
 		// Función de mostrar productos
 		function showProduct(){
-			$('.Elevación').show();
+			$('.Elevacion').show();
 			$('.filtro').css('transform', 'scale(1)');
 		} setTimeout(showProduct,200);
 	});
