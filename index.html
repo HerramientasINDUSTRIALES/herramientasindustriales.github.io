@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        
+        <!-- Icono de pestaña -->  
+        <link rel="icon" href="img/icono.svg">    
+
+        <!-- Título de pestaña / Descripción en motores / Palabras clave -->  
+        <title>Casa INGCO | Haz el mundo en tus manos</title>
+        <meta name="description" content="En Casa Ingco Llano Grande ofrecemos herramientas profesionales e industriales de alta calidad a un costo accesible para todos.">
+        <meta name="keywords" content="herramientas, industrial, productos, catálogo, ingco">
+        
+        <!-- Open graph --> 
+        <meta property="og:site_name" content="Casa Ingco Herramientas">
+        <meta property="og:title" content="Casa Ingco - Llano Grande">
+        <meta property="og:description" content="En Casa Ingco Llano Grande ofrecemos herramientas profesionales e industriales de alta calidad a un costo accesible para todos.">
+        <meta property="og:image" content="img/artes/open-graph.jpg">
+        
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+        <!-- Mis Estilos -->  
+        <link rel="stylesheet" href="css/estilos.css"> 
+
+        <!-- Datos de Excel -->  
+        <script src="js/xlsx.full.min.js"></script>
+
+        <!-- Funcionalidad de replicar componentes -->
+        <script src="js/catalogo.js"></script>
+
+        <!-- Funcionalidad de mover el menú en desktop -->
+        <script src="js/razones.js"></script>
+
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178423936-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'UA-178423936-1');
+        </script>
+    </head>
+
+    <body>
+        <!-- Animación de Precarga -->
+        <div id="cargar">
+            <h1 class="frase">Cargando</h1> 
+            <div class="cargando"></div>
+        </div>
+        
+        <!-- Menú -->
+        <header class="menu">
+            <nav class="navbar">
+                <div class="container">
+                    <!-- Logo - izquierda -->
+                    <a href="index.html" class="logo">
+                        <img src="img/logo.svg">
+                    </a>
+                    <!-- Modo -->
+                    <div class="caja-modo">
+                        <input type="checkbox" id="modo" onclick="CambioModo();">
+                        <label for="modo" class="circulo-modo"></label>
+                    </div>
+                    <!-- Botón - Mobile -->
+                    <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation" onclick="gtag('event', 'Click', { 'event_category': 'Menú', 'event_label': 'BOTON'});"></button>
+                    <!-- Menú - derecha -->
+                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                        <div class="navbar-nav border-top mt-2">
+                            <!-- Categoría 1 -->
+                            <div class="pt-4">
+                                <a href="#" class="subcategoria todo" category="all" data-toggle="collapse" data-target=".navbar-collapse">Ver todo</a>
+                            </div>
+                            <!-- Categoría 2 -->
+                            <div class="accordion" id="accordionExample">
+                                <a href="#" class="categoria collapsed" data-toggle="collapse" data-target="#m-m2" aria-expanded="true">
+                                    <img src="img/llave.svg" class="iconitos">
+                                    Manuales
+                                </a>
+                                <!-- Subcategorias -->
+                                <div id="m-m2" class="collapse pl-2" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                    <a href="#" class="subcategoria ManualesTodo tx-bold" data-toggle="collapse" data-target=".navbar-collapse">- Ver Todo -</a>
+                                    <a href="#" class="subcategoria Manuales" category="Destornilladores" data-toggle="collapse" data-target=".navbar-collapse">Destornilladores</a>
+                                    <a href="#" class="subcategoria Manuales" category="Martillos" data-toggle="collapse" data-target=".navbar-collapse">Martillos</a>
+                                    <a href="#" class="subcategoria Manuales" category="Alicates y juegos" data-toggle="collapse" data-target=".navbar-collapse">Alicates y juegos</a>
+                                    <a href="#" class="subcategoria Manuales" category="Estiletes y cortadores" data-toggle="collapse" data-target=".navbar-collapse">Estiletes y cortadores</a>
+                                    <a href="#" class="subcategoria Manuales" category="Llaves y juegos" data-toggle="collapse" data-target=".navbar-collapse">Llaves y juegos</a>
+                                    <a href="#" class="subcategoria Manuales" category="Dados" data-toggle="collapse" data-target=".navbar-collapse">Dados</a>
+                                    <a href="#" class="subcategoria Manuales" category="Espátulas y bailejos" data-toggle="collapse" data-target=".navbar-collapse">Espátulas y bailejos</a>
+                                    <a href="#" class="subcategoria Manuales" category="Rodillos" data-toggle="collapse" data-target=".navbar-collapse">Rodillos</a>
+                                    <a href="#" class="subcategoria Manuales" category="Prensas" data-toggle="collapse" data-target=".navbar-collapse">Prensas</a>
+                                    <a href="#" class="subcategoria Manuales" category="Limas y puntas" data-toggle="collapse" data-target=".navbar-collapse">Limas y puntas</a>
+                                    <a href="#" class="subcategoria Manuales" category="Serrucho y sierra" data-toggle="collapse" data-target=".navbar-collapse">Serrucho y sierra</a>
+                                    <a href="#" class="subcategoria Manuales" category="Remachadoras" data-toggle="collapse" data-target=".navbar-collapse">Remachadoras</a>
+                                    <a href="#" class="subcategoria Manuales" category="Tijeras" data-toggle="collapse" data-target=".navbar-collapse">Tijeras</a>
+                                    <a href="#" class="subcategoria Manuales" category="Riego y accesorios" data-toggle="collapse" data-target=".navbar-collapse">Riego y accesorios</a>
+                                    <a href="#" class="subcategoria Manuales" category="Pistolas para silicone" data-toggle="collapse" data-target=".navbar-collapse">Pistolas para silicone</a>
+                                    <a href="#" class="subcategoria Manuales" category="Llave de tubo" data-toggle="collapse" data-target=".navbar-collapse">Llave de tubo</a>
+                                    <a href="#" class="subcategoria Manuales" category="Candados" data-toggle="collapse" data-target=".navbar-collapse">Candados</a>
+                                    <a href="#" class="subcategoria Manuales" category="Cortador de cadena" data-toggle="collapse" data-target=".navbar-collapse">Cortador de cadena</a>
+                                    <a href="#" class="subcategoria Manuales" category="Caja herramientas" data-toggle="collapse" data-target=".navbar-collapse">Caja herramientas</a>
+                                    <div class="my-2"></div>      
+                                </div>
+                            </div>
+                            <!-- Categoría 3 -->
+                            <div class="accordion" id="accordionExample">
+                                <a href="#" class="categoria collapsed" data-toggle="collapse" data-target="#m-m3" aria-expanded="true">
+                                    <img src="img/taladro.svg" class="iconitos">
+                                    Eléctricas
+                                </a>
+                                <!-- Subcategorias -->
+                                <div id="m-m3" class="collapse pl-2" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                    <a href="#" class="subcategoria EléctricasTodo tx-bold" data-toggle="collapse" data-target=".navbar-collapse">- Ver Todo -</a>
+                                    <a href="#" class="subcategoria Eléctricas" category="Fijación" data-toggle="collapse" data-target=".navbar-collapse">Fijación</a>
+                                    <a href="#" class="subcategoria Eléctricas" category="Corte" data-toggle="collapse" data-target=".navbar-collapse">Corte</a>
+                                    <a href="#" class="subcategoria Eléctricas" category="Acabados" data-toggle="collapse" data-target=".navbar-collapse">Acabados</a>
+                                    <a href="#" class="subcategoria Eléctricas" category="Automotríz" data-toggle="collapse" data-target=".navbar-collapse">Automotríz</a>
+                                    <a href="#" class="subcategoria Eléctricas" category="Neumáticas" data-toggle="collapse" data-target=".navbar-collapse">Neumáticas</a>
+                                    <a href="#" class="subcategoria Eléctricas" category="Estacionarias" data-toggle="collapse" data-target=".navbar-collapse">Estacionarias</a>
+                                    <a href="#" class="subcategoria Eléctricas" category="Inversores" data-toggle="collapse" data-target=".navbar-collapse">Inversores</a>
+                                    <a href="#" class="subcategoria Eléctricas" category="Equipo liviano" data-toggle="collapse" data-target=".navbar-collapse">Equipo liviano</a>
+                                    <a href="#" class="subcategoria Eléctricas" category="Generadores" data-toggle="collapse" data-target=".navbar-collapse">Generadores</a>
+                                    <a href="#" class="subcategoria Eléctricas" category="Hidrolavadoras" data-toggle="collapse" data-target=".navbar-collapse">Hidrolavadoras</a>
+                                    <a href="#" class="subcategoria Eléctricas" category="Jardinería" data-toggle="collapse" data-target=".navbar-collapse">Jardinería</a>
+                                    <a href="#" class="subcategoria Eléctricas" category="Iluminación" data-toggle="collapse" data-target=".navbar-collapse">Iluminación</a>
+                                    <div class="my-2"></div>       
+                                </div>
+                            </div>
+                            <!-- Categoría 4 -->
+                            <div class="accordion" id="accordionExample">
+                                <a href="#" class="categoria collapsed" data-toggle="collapse" data-target="#m-m4" aria-expanded="true">
+                                    <img src="img/disco.svg" class="iconitos">
+                                    Accesorios
+                                </a>
+                                <!-- Subcategorias -->
+                                <div id="m-m4" class="collapse pl-2" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                    <a href="#" class="subcategoria AccesoriosTodo tx-bold" data-toggle="collapse" data-target=".navbar-collapse">- Ver Todo -</a>
+                                    <a href="#" class="subcategoria Accesorios" category="Discos" data-toggle="collapse" data-target=".navbar-collapse">Discos</a>
+                                    <a href="#" class="subcategoria Accesorios" category="Brocas" data-toggle="collapse" data-target=".navbar-collapse">Brocas</a>
+                                    <a href="#" class="subcategoria Accesorios" category="Copas" data-toggle="collapse" data-target=".navbar-collapse">Copas</a>
+                                    <a href="#" class="subcategoria Accesorios" category="Cuchillas" data-toggle="collapse" data-target=".navbar-collapse">Cuchillas</a>
+                                    <div class="my-2"></div>       
+                                </div>
+                            </div>
+                            <!-- Categoría 5 -->
+                            <div class="accordion" id="accordionExample">
+                                <a href="#" class="categoria collapsed" data-toggle="collapse" data-target="#m-m5" aria-expanded="true">
+                                    <img src="img/cinta.svg" class="iconitos">
+                                    Medición
+                                </a>
+                                <!-- Subcategorias -->
+                                <div id="m-m5" class="collapse pl-2" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                    <a href="#" class="subcategoria MediciónTodo tx-bold" data-toggle="collapse" data-target=".navbar-collapse">- Ver Todo -</a>
+                                    <a href="#" class="subcategoria Medición" category="Cinta métrica" data-toggle="collapse" data-target=".navbar-collapse">Cinta métrica</a>
+                                    <a href="#" class="subcategoria Medición" category="Nivel" data-toggle="collapse" data-target=".navbar-collapse">Nivel</a>
+                                    <a href="#" class="subcategoria Medición" category="Detector de corriente" data-toggle="collapse" data-target=".navbar-collapse">Detector de corriente</a>
+                                    <a href="#" class="subcategoria Medición" category="Calibrador" data-toggle="collapse" data-target=".navbar-collapse">Calibrador</a>
+                                    <a href="#" class="subcategoria Medición" category="Electrónica" data-toggle="collapse" data-target=".navbar-collapse">Electrónica</a>
+                                    <div class="my-2"></div>       
+                                </div>
+                            </div>
+                            <!-- Categoría 6 -->
+                            <div class="accordion" id="accordionExample">
+                                <a href="#" class="categoria collapsed" data-toggle="collapse" data-target="#m-m6" aria-expanded="true">
+                                    <img src="img/carro.svg" class="iconitos">
+                                    Elevación
+                                </a>
+                                <!-- Subcategorias -->
+                                <div id="m-m6" class="collapse pl-2" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                    <a href="#" class="subcategoria ElevaciónTodo tx-bold" data-toggle="collapse" data-target=".navbar-collapse">- Ver Todo -</a>
+                                    <a href="#" class="subcategoria Elevación" category="Gatas" data-toggle="collapse" data-target=".navbar-collapse">Gatas</a>
+                                    <a href="#" class="subcategoria Elevación" category="Estabilizadores" data-toggle="collapse" data-target=".navbar-collapse">Estabilizadores</a>
+                                    <div class="my-2"></div>       
+                                </div>
+                            </div>
+                            <!-- Categoría 7 -->
+                            <div class="accordion pb-3" id="accordionExample">
+                                <a href="#" class="categoria collapsed" data-toggle="collapse" data-target="#m-m7" aria-expanded="true">
+                                    <img src="img/casco.svg" class="iconitos">
+                                    Seguridad
+                                </a>
+                                <!-- Subcategorias -->
+                                <div id="m-m7" class="collapse pl-2" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                    <a href="#" class="subcategoria SeguridadTodo tx-bold" data-toggle="collapse" data-target=".navbar-collapse">- Ver Todo -</a>
+                                    <a href="#" class="subcategoria Seguridad" category="Calzado" data-toggle="collapse" data-target=".navbar-collapse">Calzado</a>
+                                    <a href="#" class="subcategoria Seguridad" category="Guantes" data-toggle="collapse" data-target=".navbar-collapse">Guantes</a>
+                                    <a href="#" class="subcategoria Seguridad" category="Protectores faciales" data-toggle="collapse" data-target=".navbar-collapse">Protectores faciales</a>
+                                    <a href="#" class="subcategoria Seguridad" category="Protectores auditivos" data-toggle="collapse" data-target=".navbar-collapse">Protectores auditivos</a>
+                                    <a href="#" class="subcategoria Seguridad" category="Protectores visuales" data-toggle="collapse" data-target=".navbar-collapse">Protectores visuales</a>
+                                    <div class="my-2"></div>       
+                                </div>
+                            </div>
+                             <!-- Contáctame -->
+                            <div class="text-center border-top py-4">
+                                <!-- Frase -->
+                                <h5 class="tx-negro mb-3">¿Necesitas ayuda para escoger <br>tu producto ideal?</h5>
+                                <!-- Botón -->
+                                <div class="text-center">
+                                    <a href="https://api.whatsapp.com/send?phone=593962854170&text=¡Hola! 👋🏼 Necesito su ayuda para..." target="blank" class="btn bt-comprar mt-0 mb-5" onclick="gtag('event', 'Click', { 'event_category': 'WhatsApp', 'event_label': 'Arriba'});">
+                                        <img src="img/whatsapp.svg" class="mr-2 pb-1" width="20px">
+                                        Escríbenos
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        
+        <!-- Contenido -->
+        <main>
+            <!-- Submenú Desktop -->
+            <section class="submenu-d" id="submenu">
+                <h5 class="tx-bold mb-4">Herramientas</h5>
+                <div class="row">
+                    <div class="col-12">
+                        <!-- Categoría 1 -->
+                        <a href="#" class="subcategoria todo" category="all">Ver todo</a>
+                        <!-- Categoría 2 -->
+                        <div class="accordion" id="accordionExample">
+                            <a href="#" class="categoria collapsed" data-toggle="collapse" data-target="#d-m2" aria-expanded="true">
+                                <img src="img/llave.svg" class="iconitos">
+                                Manuales
+                            </a>
+                            <!-- Subcategorias -->
+                            <div id="d-m2" class="collapse pl-2" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                <a href="#" class="subcategoria ManualesTodo tx-bold">- Ver Todo -</a>
+                                <a href="#" class="subcategoria Manuales" category="Destornilladores">Destornilladores</a>
+                                <a href="#" class="subcategoria Manuales" category="Martillos">Martillos</a>
+                                <a href="#" class="subcategoria Manuales" category="Alicates y juegos">Alicates y juegos</a>
+                                <a href="#" class="subcategoria Manuales" category="Estiletes y cortadores">Estiletes y cortadores</a>
+                                <a href="#" class="subcategoria Manuales" category="Llaves y juegos">Llaves y juegos</a>
+                                <a href="#" class="subcategoria Manuales" category="Dados">Dados</a>
+                                <a href="#" class="subcategoria Manuales" category="Espátulas y bailejos">Espátulas y bailejos</a>
+                                <a href="#" class="subcategoria Manuales" category="Rodillos">Rodillos</a>
+                                <a href="#" class="subcategoria Manuales" category="Prensas">Prensas</a>
+                                <a href="#" class="subcategoria Manuales" category="Limas y puntas">Limas y puntas</a>
+                                <a href="#" class="subcategoria Manuales" category="Serrucho y sierra">Serrucho y sierra</a>
+                                <a href="#" class="subcategoria Manuales" category="Remachadoras">Remachadoras</a>
+                                <a href="#" class="subcategoria Manuales" category="Tijeras">Tijeras</a>
+                                <a href="#" class="subcategoria Manuales" category="Riego y accesorios">Riego y accesorios</a>
+                                <a href="#" class="subcategoria Manuales" category="Pistolas para silicone">Pistolas para silicone</a>
+                                <a href="#" class="subcategoria Manuales" category="Llave de tubo">Llave de tubo</a>
+                                <a href="#" class="subcategoria Manuales" category="Candados">Candados</a>
+                                <a href="#" class="subcategoria Manuales" category="Cortador de cadena">Cortador de cadena</a>
+                                <a href="#" class="subcategoria Manuales" category="Caja herramientas">Caja herramientas</a>
+                                <div class="my-2"></div>      
+                            </div>
+                        </div>
+                        <!-- Categoría 3 -->
+                        <div class="accordion" id="accordionExample">
+                            <a href="#" class="categoria collapsed" data-toggle="collapse" data-target="#d-m3" aria-expanded="true">
+                                <img src="img/taladro.svg" class="iconitos">
+                                Eléctricas
+                            </a>
+                            <!-- Subcategorias -->
+                            <div id="d-m3" class="collapse pl-2" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                <a href="#" class="subcategoria EléctricasTodo tx-bold">- Ver Todo -</a>
+                                <a href="#" class="subcategoria Eléctricas" category="Fijación">Fijación</a>
+                                <a href="#" class="subcategoria Eléctricas" category="Corte">Corte</a>
+                                <a href="#" class="subcategoria Eléctricas" category="Acabados">Acabados</a>
+                                <a href="#" class="subcategoria Eléctricas" category="Automotríz">Automotríz</a>
+                                <a href="#" class="subcategoria Eléctricas" category="Neumáticas">Neumáticas</a>
+                                <a href="#" class="subcategoria Eléctricas" category="Estacionarias">Estacionarias</a>
+                                <a href="#" class="subcategoria Eléctricas" category="Inversores">Inversores</a>
+                                <a href="#" class="subcategoria Eléctricas" category="Equipo liviano">Equipo liviano</a>
+                                <a href="#" class="subcategoria Eléctricas" category="Generadores">Generadores</a>
+                                <a href="#" class="subcategoria Eléctricas" category="Hidrolavadoras">Hidrolavadoras</a>
+                                <a href="#" class="subcategoria Eléctricas" category="Jardinería">Jardinería</a>
+                                <a href="#" class="subcategoria Eléctricas" category="Iluminación">Iluminación</a>
+                                <div class="my-2"></div>       
+                            </div>
+                        </div>
+                        <!-- Categoría 4 -->
+                        <div class="accordion" id="accordionExample">
+                            <a href="#" class="categoria collapsed" data-toggle="collapse" data-target="#d-m4" aria-expanded="true">
+                                <img src="img/disco.svg" class="iconitos">
+                                Accesorios
+                            </a>
+                            <!-- Subcategorias -->
+                            <div id="d-m4" class="collapse pl-2" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                <a href="#" class="subcategoria AccesoriosTodo tx-bold">- Ver Todo -</a>
+                                <a href="#" class="subcategoria Accesorios" category="Discos">Discos</a>
+                                <a href="#" class="subcategoria Accesorios" category="Brocas">Brocas</a>
+                                <a href="#" class="subcategoria Accesorios" category="Copas">Copas</a>
+                                <a href="#" class="subcategoria Accesorios" category="Cuchillas">Cuchillas</a>
+                                <div class="my-2"></div>       
+                            </div>
+                        </div>
+                        <!-- Categoría 5 -->
+                        <div class="accordion" id="accordionExample">
+                            <a href="#" class="categoria collapsed" data-toggle="collapse" data-target="#d-m5" aria-expanded="true">
+                                <img src="img/cinta.svg" class="iconitos">
+                                Medición
+                            </a>
+                            <!-- Subcategorias -->
+                            <div id="d-m5" class="collapse pl-2" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                <a href="#" class="subcategoria MediciónTodo tx-bold">- Ver Todo -</a>
+                                <a href="#" class="subcategoria Medición" category="Cinta métrica">Cinta métrica</a>
+                                <a href="#" class="subcategoria Medición" category="Nivel">Nivel</a>
+                                <a href="#" class="subcategoria Medición" category="Detector de corriente">Detector de corriente</a>
+                                <a href="#" class="subcategoria Medición" category="Calibrador">Calibrador</a>
+                                <a href="#" class="subcategoria Medición" category="Electrónica">Electrónica</a>
+                                <div class="my-2"></div>       
+                            </div>
+                        </div>
+                        <!-- Categoría 6 -->
+                        <div class="accordion" id="accordionExample">
+                            <a href="#" class="categoria collapsed" data-toggle="collapse" data-target="#d-m6" aria-expanded="true">
+                                <img src="img/carro.svg" class="iconitos">
+                                Elevación
+                            </a>
+                            <!-- Subcategorias -->
+                            <div id="d-m6" class="collapse pl-2" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                <a href="#" class="subcategoria ElevaciónTodo tx-bold">- Ver Todo -</a>
+                                <a href="#" class="subcategoria Elevación" category="Gatas">Gatas</a>
+                                <a href="#" class="subcategoria Elevación" category="Estabilizadores">Estabilizadores</a>
+                                <div class="my-2"></div>       
+                            </div>
+                        </div>
+                        <!-- Categoría 7 -->
+                        <div class="accordion" id="accordionExample">
+                            <a href="#" class="categoria collapsed" data-toggle="collapse" data-target="#d-m7" aria-expanded="true">
+                                <img src="img/casco.svg" class="iconitos">
+                                Seguridad
+                            </a>
+                            <!-- Subcategorias -->
+                            <div id="d-m7" class="collapse pl-2" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                <a href="#" class="subcategoria SeguridadTodo tx-bold">- Ver Todo -</a>
+                                <a href="#" class="subcategoria Seguridad" category="Calzado">Calzado</a>
+                                <a href="#" class="subcategoria Seguridad" category="Guantes">Guantes</a>
+                                <a href="#" class="subcategoria Seguridad" category="Protectores faciales">Protectores faciales</a>
+                                <a href="#" class="subcategoria Seguridad" category="Protectores auditivos">Protectores auditivos</a>
+                                <a href="#" class="subcategoria Seguridad" category="Protectores visuales">Protectores visuales</a>
+                                <div class="my-2"></div>       
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tablero de productos -->
+            <section class="contenido">
+                <!-- Banners -->
+                <img src="img/artes/banner-d.png" class="d-md-inline-block d-none mb-4" width="100%" alt="banner-desktop">
+                <img src="img/artes/banner-m.png" class="d-md-none d-inline-block mb-4" width="100%" alt="banner-mobile">
+                <h1 class="text-center">Calidad a tu alcance</h1>
+                    <!-- Productos -->
+                    <div class="row" id="catalogo"></div>
+            </section>
+
+             <!-- Información -->
+             <section class="contactos">
+                <div class="row justify-content-center text-center">
+                    <!-- Titular -->
+                    <div class="col-12 mb-4">
+                        <h4>Más información</h4>
+                    </div>
+                    <!-- Datos -->
+                    <div class="container mb-md-4 mb-2">
+                        <div class="row justify-content-center text-center">
+                            <!-- Contactos -->
+                            <div class="col-md-4 col-12">
+                                <img src="img/contactos.svg" class="mb-3" width="80px">
+                                <p class="tx-gris" id="miCaja">096 285 4170<br>099 525 1125<br>ingcollanogrande@gmail.com</p>
+                            </div>
+                            <!-- Horario -->
+                            <div class="col-md-4 col-12 my-md-0 my-4">
+                                <img src="img/horario.svg" class="mb-3" width="80px">
+                                <p class="tx-gris">Lunes a Viernes: 8:00 - 17:30<br>Sábados: 9:00 - 14:00</p>
+                            </div>
+                            <!-- Dirección -->
+                            <div class="col-md-4 col-12">
+                                <img src="img/ubicacion.svg" class="mb-3" width="80px">
+                                <p class="tx-gris">Calle 23 de Abril y García Moreno. Plaza comercial San José, local 7.<br> Quito - Ecuador</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Mapa -->
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d772.7161929184552!2d-78.44189085389856!3d-0.11128975957718207!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x6f62e29e1b5c18c0!2zMMKwMDYnNDIuOCJTIDc4wrAyNiczMC41Ilc!5e0!3m2!1ses-419!2sec!4v1672683791342!5m2!1ses-419!2sec" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </section>
+
+            <!-- Asesoria -->
+            <section class="ayuda">
+                <div class="row justify-content-center text-center">
+                    <div class="container">
+                        <div class="row justify-content-center align-items-center text-center">
+                            <!-- Frase -->
+                            <div class="col-lg-5 col-md-6 col-12">
+                                <h5 class="tx-negro mb-md-0 mb-4">¿Necesitas ayuda para escoger <br>tu producto ideal?</h5>
+                            </div>
+                            <!-- Botón -->
+                            <div class="col-lg-3 col-md-4 col-10">
+                                <a href="https://api.whatsapp.com/send?phone=593962854170&text=¡Hola! 👋🏼 Necesito su ayuda para..." target="blank" class="btn bt-comprar mt-0" onclick="gtag('event', 'Click', { 'event_category': 'WhatsApp', 'event_label': 'Abajo'});">
+                                    <img src="img/whatsapp.svg" class="mr-2 pb-1" width="20px">
+                                    Escríbenos
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Pié de página -->
+        <footer class="derechos">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <!-- Derechos -->
+                    <div class="col-md-8 col-12 text-md-left text-center mb-md-0 mb-2">
+                        © 2023 Casa INGCO Llano Grande.
+                    </div>
+                    <!-- Redes -->
+                    <div class="col-md-4 col-12 text-md-right text-center">
+                        <a href="https://www.facebook.com/people/CASA-INGCO-Llano-Grande/100087198747089" target="blank" class="redes mr-2" onclick="gtag('event', 'Click', { 'event_category': 'Redes', 'event_label': 'Facebook'});">
+                            <img src="img/facebook.svg" width="28px">
+                        </a>
+                        <a href="https://www.instagram.com/ingco_llano_grande" target="blank" class="redes" onclick="gtag('event', 'Click', { 'event_category': 'Redes', 'event_label': 'Instagram'});">
+                            <img src="img/instagram.svg" width="28px">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Whatsapp fijo -->
+        <div class="acceso2">¿Necesitas ayuda?</div>
+            <a href="https://api.whatsapp.com/send?phone=593962854170&text=¡Hola! 👋🏼 Necesito su ayuda para..." target="blank" class="acceso" onclick="gtag('event', 'Click', { 'event_category': 'WhatsApp', 'event_label': 'Flotante'});"><img src="img/whatsapp.svg" width="40px"></a>
+        </div>
+
+        <!-- Modales-->
+        <div class="row" id="detalle"></div>
+
+        <!-- Funcionalidad de Precarga -->
+        <script>
+            window.onload = function(){
+              var cargar = document.getElementById('cargar');
+              cargar.style.opacity = '0';
+              cargar.style.display = 'none';
+            }
+        </script>
+
+        <!-- Funcionalidad de Modo -->
+        <script>
+            function CambioModo() {
+              if(document.getElementById("modo").checked==true){
+                document.querySelector("html").style.setProperty('--color-blanco', "#263238");
+                document.querySelector("html").style.setProperty('--tx-gris', "#a7a7a7");
+                document.querySelector("html").style.setProperty('--tx-negro', "#ffffff");
+                document.querySelector("html").style.setProperty('--fondo-gris', "#37474f");
+                document.querySelector("html").style.setProperty('--sombra-caja', "#00000043");
+              } else{
+                document.querySelector("html").style.setProperty('--color-blanco', "#ffffff");
+                document.querySelector("html").style.setProperty('--tx-gris', "#878787");
+                document.querySelector("html").style.setProperty('--tx-negro', "#000000");
+                document.querySelector("html").style.setProperty('--fondo-gris', "#f3f3f3");
+                document.querySelector("html").style.setProperty('--sombra-caja', "#34292721");
+              };
+              gtag('event', 'Click', { 'event_category': 'Modo', 'event_label': 'Dark-White'});
+            }
+        </script>
+
+        <!-- Funcionalidad de detectar visibilidad -->  
+        <script>
+            function cambiaVisibilidad(visible, elemento){
+                var mover = document.getElementById("submenu");
+                if(elemento.id, visible == true){
+                    mover.classList.add("moviendo");
+                } else {
+                    mover.classList.remove("moviendo");
+                }
+            }
+            var miDiv = document.getElementById("miCaja");
+            inViewportPartially(miDiv, cambiaVisibilidad);
+        </script>
+
+        <!-- Funcionalidad de filtro-categoria -->
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="js/filtro.js"></script>
+
+        <!-- Funcionalidad de Modal -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    </body>
+</html>
