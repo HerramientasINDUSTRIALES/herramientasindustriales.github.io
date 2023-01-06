@@ -48,6 +48,10 @@ oReq.onload = function(e) {
                                                 
                                                 
                                                 
+                                                Referencia: https://casaingco.github.io/img/fotos/${carrito.catalogo[i].Categoria}/${carrito.catalogo[i].Codigo}.jpg
+                                                
+                                                
+                                                
                                                 😃 ¿Me puedes ayudar con más información?" target="blank" class="btn bt-comprar mb-3" onclick="gtag('event', 'Click', { 'event_category': 'Comprar', 'event_label': '${carrito.catalogo[i].Producto}'});">
                                                 Comprar
                                             </a>
@@ -122,6 +126,10 @@ oReq.onload = function(e) {
                                                 
                                                 
                                                 Precio: $*${contenido.detalle[i].Precio}*
+                                                
+                                                
+                                                
+                                                Referencia: https://casaingco.github.io/img/fotos/${carrito.catalogo[i].Categoria}/${carrito.catalogo[i].Codigo}.jpg
                                                 
                                                 
                                                 
