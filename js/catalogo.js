@@ -44,11 +44,7 @@ oReq.onload = function(e) {
                                                 
                                                 
                                                 
-                                                Precio: $*${carrito.catalogo[i].Precio}*
-                                                
-                                                
-                                                
-                                                Referencia: casaingco.github.io/img/fotos/${carrito.catalogo[i].Categoria}/${carrito.catalogo[i].Subcategoria}/${carrito.catalogo[i].Codigo}.jpg
+                                                Precio: *$${carrito.catalogo[i].Precio}*
                                                 
                                                 
                                                 
@@ -125,11 +121,7 @@ oReq.onload = function(e) {
                                                 
                                                 
                                                 
-                                                Precio: $*${contenido.detalle[i].Precio}*
-                                                
-                                                
-                                                
-                                                Referencia: casaingco.github.io/img/fotos/${contenido.detalle[i].Categoria}/${contenido.detalle[i].Subcategoria}/${contenido.detalle[i].Codigo}.jpg
+                                                Precio: *$${contenido.detalle[i].Precio}*
                                                 
                                                 
                                                 
