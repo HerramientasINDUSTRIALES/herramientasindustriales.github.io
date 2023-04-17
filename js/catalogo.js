@@ -32,7 +32,7 @@ oReq.onload = function(e) {
                                         <p class="caption tx-gris mb-2">${carrito.catalogo[i].Codigo}</p>
                                         <p>Precio: $${carrito.catalogo[i].Precio}</p>
                                         <div class="text-center">
-                                            <a href="https://api.whatsapp.com/send?phone=593962854170&text=¡Hola! 👋🏼 Estoy interesado en:
+                                            <a href="https://api.whatsapp.com/send?phone=593996637879&text=¡Hola! 👋🏼 Estoy interesado en:
                                                 
                                                 
                                                 
@@ -109,7 +109,7 @@ oReq.onload = function(e) {
                                 <div class="modal-fijo">
                                     <div class="row justify-content-center">
                                         <div class="col-10"> 
-                                            <a href="https://api.whatsapp.com/send?phone=593962854170&text=¡Hola! 👋🏼 Estoy interesado en:
+                                            <a href="https://api.whatsapp.com/send?phone=593996637879&text=¡Hola! 👋🏼 Estoy interesado en:
                                                 
                                                 
                                                 
