@@ -1,4 +1,6 @@
-$(document).ready(function(){
+jQuery(document).ready(function($) {
+
+	$(document).ready(function(){
 
 	// Asignar clase activa en el primer botón
 	$('.submenu-d .subcategoria[category="all"]').addClass('subcategoria-activo');
@@ -122,4 +124,5 @@ $(document).ready(function(){
 			$('.filtro').css('transform', 'scale(1)');
 		} setTimeout(showProduct,200);
 	});
+});
 });
