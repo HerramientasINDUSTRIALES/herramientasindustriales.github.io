@@ -19,11 +19,30 @@ function initClient() {
         discoveryDocs: ["https://sheets.googleapis.com/$discovery/rest?version=v4"],
     }).then(() => {
         // Llama a la función para cargar los datos de la hoja de cálculo
-        loadSheetData();
+        loadSheetData1();
+        loadSheetData2();
     });
 }
 
-function loadSheetData() {
+// Carga los textos del titular y subtitular de la página
+function loadSheetData1() {
+    gapi.client.sheets.spreadsheets.values.get({
+      spreadsheetId: SPREADSHEET_ID,
+      range: 'Textos' // Rango de celdas que contienen los textos
+    }).then(function(response) {
+      const values = response.result.values;
+
+        const titulo = values[0][1];
+        const subtitulo = values[1][1];
+  
+        // Actualizar los elementos HTML con los textos obtenidos
+        document.getElementById('titulo').innerText = titulo;
+        document.getElementById('subtitulo').innerText = subtitulo;
+    })
+}
+
+// Carga los datos de los productos
+function loadSheetData2() {
     gapi.client.sheets.spreadsheets.values.get({
         spreadsheetId: SPREADSHEET_ID,
         range: 'Productos!A2:G',  // Excluye la primera fila al comenzar desde la fila 2
@@ -31,7 +50,7 @@ function loadSheetData() {
         // Obtiene los datos de la respuesta
         const sheetData = response.result.values;
 
-        // Convierte los datos a un formato similar al que usas para el archivo Excel local
+        // Convierte los datos
         carrito.catalogo = sheetData.map(row => ({
             Categoria: row[0],
             Subcategoria: row[1],
