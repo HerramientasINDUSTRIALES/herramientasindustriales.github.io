@@ -75,7 +75,7 @@ function renderCatalogo() {
     var template = ``;
     for (var i in carrito.catalogo) {
         template += `
-            <div class="col-xl-3 col-lg-3 col-md-3 col-6 filtro ${carrito.catalogo[i].Categoria}" category="${carrito.catalogo[i].Subcategoria}">
+            <div class="col-xl-3 col-lg-3 col-md-3 col-6 filtro ${carrito.catalogo[i].Categoria}" category="${carrito.catalogo[i].Subcategoria}" style="${carrito.catalogo[i].Stock === '0' ? 'display:none;' : ''}">
                 <div class="caja">
                     <div class="producto">
                         <div class="row">
@@ -124,7 +124,7 @@ function renderDetalle() {
     var template = ``;
     for (var i in carrito.catalogo) {
         template += `
-            <div class="modal fade" id="${carrito.catalogo[i].Codigo}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal fade" id="${carrito.catalogo[i].Codigo}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="${carrito.catalogo[i].Stock === '0' ? 'display:none;' : ''}">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <!-- Cerrar -->
