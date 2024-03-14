@@ -275,11 +275,23 @@
 
             <!-- Tablero de productos -->
             <section class="contenido">
-                <!-- Banners -->
-                <h2 class="text-center" id="titulo"></h2>
-                <h4 class="text-center pb-2" id="subtitulo"></h4>
-                    <!-- Productos -->
-                    <div class="row" id="catalogo"></div>
+                <div class="row align-items-end pb-4">
+                    <!-- Titulares -->
+                    <div class="col-md-9 col-12">
+                        <h2 id="titulo"></h2>
+                        <h4 class="pb-md-0 pb-4" id="subtitulo"></h4>
+                    </div>
+                    <!-- Buscador -->
+                    <div class="col-md-3 col-12 text-center">
+                        <input class="buscador" type="text" id="buscar" placeholder="Buscar...">
+                    </div>
+                </div>
+                <div class="row" id="catalogo"></div>
+                <!-- Sin productos -->
+                <div id="no-resultados" class="text-center mt-4 mb-5" style="display: none;">
+                    <h6>Sin resultados</h6>
+                    <p class="tx-gris">No encontramos el producto que buscas</p>
+                </div>
             </section>
         </main>
 
