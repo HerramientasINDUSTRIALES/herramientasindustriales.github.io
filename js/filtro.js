@@ -125,4 +125,29 @@ jQuery(document).ready(function($) {
 		} setTimeout(showProduct,200);
 	});
 });
+
+$(document).ready(function(){
+	// Función para filtrar productos mientras se escribe en el campo de búsqueda
+	$('#buscar').on('keyup', function(){
+		var valor = $(this).val().toLowerCase(); // Obtener el valor del campo de búsqueda en minúsculas
+		$('.filtro').hide().filter(function(){
+			return $(this).text().toLowerCase().indexOf(valor) > -1; // Mostrar solo productos que coincidan con la búsqueda
+		}).show();
+
+		// Mostrar mensaje si no hay resultados
+		if ($('.filtro:visible').length === 0) {
+			$('#no-resultados').show();
+		} else {
+			$('#no-resultados').hide();
+		}
+	});
+
+	// Función para mostrar todos los productos
+	function mostrarTodosLosProductos() {
+		$('.subcategoria[category="all"]').addClass('subcategoria-activo');
+		$('.filtro').show();
+		$('.filtro').css('transform', 'scale(1)');
+	}
+});
+
 });
