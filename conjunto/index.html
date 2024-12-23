@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        
+        <!-- Icono de pestaña -->  
+        <link rel="icon" href="img/nombre.svg">    
+
+        <!-- Título de pestaña / Descripción en motores / Palabras clave -->  
+        <title>Conjunto Ganté</title>
+        <meta name="description" content="Reporteria de ingresos y egresos">
+        <meta name="keywords" content="Administración de conjunto">
+        
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+        <!-- Mis Estilos -->  
+        <link rel="stylesheet" href="css/estilos.css"> 
+
+    </head>
+
+    <body>
+        <!-- Animación de Precarga -->
+        <div id="cargar">
+            <h1 class="frase">Cargando</h1> 
+            <div class="cargando"></div>
+        </div>
+        
+        <!-- Contenido -->
+        <main>
+            <section class="fondo">
+                <div class="container-fluid mb-4 mb-md-0">
+                    <div class="row align-items-center">
+                        <!-- Espacio -->
+                        <div class="col-xl-4 col-lg-4 col-md-4 col-12"></div>
+                        <!-- Titular -->
+                        <div class="col-xl-4 col-lg-4 col-md-4 col-12 text-center py-4">
+                            <h1>Conjunto Ganté</h1>
+                        </div>
+                        <!-- Filtros -->
+                        <div class="col-xl-4 col-lg-4 col-md-4 col-12">
+                            <form class="row justify-content-center">
+                                <!-- Espacio -->
+                                <div class="col-xl-2 col-lg-2 col-md-2 col-0"></div>
+                                <!-- Filtro años -->
+                                <select class="col-xl-4 col-lg-4 col-md-4 col-4 form-control" id="anios" onchange="filtrarDatos()">
+                                    <option value="">Todos los años</option>
+                                    <option>2024</option>
+                                    <option>2025</option>
+                                    <option>2026</option>
+                                    <option>2027</option>
+                                </select>
+                                <!-- Espacio -->
+                                <div class="col-xl-1 col-lg-1 col-md-1 col-1"></div>
+                                <!-- Filtro meses -->
+                                <select class="col-xl-5 col-lg-5 col-md-5 col-6 form-control" id="meses" onchange="filtrarDatos()">
+                                    <option value="">Todos los meses</option>
+                                    <option>Enero</option>
+                                    <option>Febrero</option>
+                                    <option>Marzo</option>
+                                    <option>Abril</option>
+                                    <option>Mayo</option>
+                                    <option>Junio</option>
+                                    <option>Julio</option>
+                                    <option>Agosto</option>
+                                    <option>Septiembre</option>
+                                    <option>Octubre</option>
+                                    <option>Novimebre</option>
+                                    <option>Diciembre</option>
+                                </select>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contenido">
+                    <!-- Tabs de tablas -->
+                    <nav>
+                        <div class="nav nav-tabs">
+                        <a class="nav-item nav-link active" data-toggle="tab" href="#tabla-conjunto">CONJUNTO</a>
+                        <a class="nav-item nav-link" data-toggle="tab" href="#tabla-casa-1">Casa 1</a>
+                        <a class="nav-item nav-link" data-toggle="tab" href="#tabla-casa-2">Casa 2</a>
+                        <a class="nav-item nav-link" data-toggle="tab" href="#tabla-casa-3">Casa 3</a>
+                        <a class="nav-item nav-link" data-toggle="tab" href="#tabla-casa-4">Casa 4</a>
+                        </div>
+                    </nav>
+
+                    <div class="tab-content">
+                        <!-- Contenido Tab 1 -->
+                        <div class="tab-pane fade show active" id="tabla-conjunto">
+                            <!-- Cards generales -->
+                            <div class="row py-4">
+                                <div class="col-xl-4 col-lg-4 col-md-4 col-12">
+                                    <div class="producto text-center">
+                                        <h6 class="tx-gris">Ingresos</h6>
+                                        <h2 class="tx-negro" id="ingresos"></h2>
+                                    </div>
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-md-4 col-12 my-2 my-md-0">
+                                    <div class="producto text-center">
+                                        <h6 class="tx-gris">Egresos</h6>
+                                        <h2 class="tx-negro" id="gastos"></h2>
+                                    </div>
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-md-4 col-12">
+                                    <div class="producto text-center">
+                                        <h6 class="tx-gris">Reserva</h6>
+                                        <h2 class="tx-negro" id="diferencia"></h2>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Tabla del conjunto -->
+                            <div class="table-responsive mt-4">
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th class="tx-bold" scope="col">Año</th>
+                                        <th class="tx-bold" scope="col">Mes</th>
+                                        <th class="tx-bold" scope="col">Descripción</th>
+                                        <th class="tx-bold" scope="col">Período</th>
+                                        <th class="tx-bold text-right" scope="col">Factura</th>
+                                        <th class="tx-bold text-right" scope="col">Comisión</th>
+                                        <th class="tx-bold text-right" scope="col">Total</th>
+                                        <th class="tx-bold text-right" scope="col">Cuotas</th>
+                                        <th class="tx-bold text-right" scope="col">Reserva</th>
+                                        <th class="tx-bold text-center" scope="col">Comprobante</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="conjunto"></tbody>    
+                                </table>
+                            </div>                     
+                        </div>
+
+                        <!-- Contenido Tab 2 -->
+                        <div class="tab-pane fade" id="tabla-casa-1">
+                            <!-- Estado general de Casa 1 -->
+                            <div class="row justify-content-center py-4">
+                                <div class="col-xl-4 col-lg-4 col-md-4 col-12 mb-2 mb-md-0">
+                                    <div class="producto text-center">
+                                        <h6 class="tx-gris">Propietario</h6>
+                                        <h2 class="tx-negro">Victor Játiva</h2>
+                                    </div>
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-md-4 col-6">
+                                    <div class="producto text-center">
+                                        <h6 class="tx-gris">Pagos</h6>
+                                        <h2 class="tx-negro" id="general_casa1"></h2>
+                                    </div>
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-md-4 col-6">
+                                    <div class="producto text-center">
+                                        <h6 class="tx-gris">Saldo total</h6>
+                                        <h2 class="tx-negro" id="saldo_total_casa1"></h2>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Tabla de Casa 1 -->
+                            <div class="table-responsive mt-4">
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th class="tx-bold" scope="col">Año</th>
+                                        <th class="tx-bold" scope="col">Mes</th>
+                                        <th class="tx-bold" scope="col">Descripción</th>
+                                        <th class="tx-bold" scope="col">Fecha</th>
+                                        <th class="tx-bold text-right" scope="col">Cuota</th>
+                                        <th class="tx-bold text-right" scope="col">Pago</th>
+                                        <th class="tx-bold text-right" scope="col">Saldo</th>
+                                        <th class="tx-bold text-center" scope="col">Estado</th>
+                                        <th class="tx-bold text-center" scope="col">Comprobante</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="casa1"></tbody>
+                                </table>
+                            </div>   
+                        </div>
+
+                        <!-- Contenido Tab 3 -->
+                        <div class="tab-pane fade" id="tabla-casa-2">
+                            <!-- Estado general de Casa 2 -->
+                            <div class="row justify-content-center py-4">
+                                <div class="col-xl-4 col-lg-4 col-md-4 col-12 mb-2 mb-md-0">
+                                    <div class="producto text-center">
+                                        <h6 class="tx-gris">Propietario</h6>
+                                        <h2 class="tx-negro">Gandhi Játiva</h2>
+                                    </div>
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-md-4 col-6">
+                                    <div class="producto text-center">
+                                        <h6 class="tx-gris">Pagos</h6>
+                                        <h2 class="tx-negro" id="general_casa2"></h2>
+                                    </div>
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-md-4 col-6">
+                                    <div class="producto text-center">
+                                        <h6 class="tx-gris">Saldo total</h6>
+                                        <h2 class="tx-negro" id="saldo_total_casa2"></h2>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Tabla de Casa 2 -->
+                            <div class="table-responsive mt-4">
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th class="tx-bold" scope="col">Año</th>
+                                        <th class="tx-bold" scope="col">Mes</th>
+                                        <th class="tx-bold" scope="col">Descripción</th>
+                                        <th class="tx-bold" scope="col">Fecha</th>
+                                        <th class="tx-bold text-right" scope="col">Cuota</th>
+                                        <th class="tx-bold text-right" scope="col">Pago</th>
+                                        <th class="tx-bold text-right" scope="col">Saldo</th>
+                                        <th class="tx-bold text-center" scope="col">Estado</th>
+                                        <th class="tx-bold text-center" scope="col">Comprobante</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="casa2"></tbody>
+                                </table>
+                            </div>  
+                        </div>
+
+                        <!-- Contenido Tab 4 -->
+                        <div class="tab-pane fade" id="tabla-casa-3">
+                            <!-- Estado general de Casa 3 -->
+                            <div class="row justify-content-center py-4">
+                                <div class="col-xl-4 col-lg-4 col-md-4 col-12 mb-2 mb-md-0">
+                                    <div class="producto text-center">
+                                        <h6 class="tx-gris">Propietario</h6>
+                                        <h2 class="tx-negro">Jéssica Camargo</h2>
+                                    </div>
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-md-4 col-6">
+                                    <div class="producto text-center">
+                                        <h6 class="tx-gris">Pagos</h6>
+                                        <h2 class="tx-negro" id="general_casa3"></h2>
+                                    </div>
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-md-4 col-6">
+                                    <div class="producto text-center">
+                                        <h6 class="tx-gris">Saldo total</h6>
+                                        <h2 class="tx-negro" id="saldo_total_casa3"></h2>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Tabla de Casa 3 -->
+                            <div class="table-responsive mt-4">
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th class="tx-bold" scope="col">Año</th>
+                                        <th class="tx-bold" scope="col">Mes</th>
+                                        <th class="tx-bold" scope="col">Descripción</th>
+                                        <th class="tx-bold" scope="col">Fecha</th>
+                                        <th class="tx-bold text-right" scope="col">Cuota</th>
+                                        <th class="tx-bold text-right" scope="col">Pago</th>
+                                        <th class="tx-bold text-right" scope="col">Saldo</th>
+                                        <th class="tx-bold text-center" scope="col">Estado</th>
+                                        <th class="tx-bold text-center" scope="col">Comprobante</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="casa3"></tbody>
+                                </table>
+                            </div>  
+                        </div>
+
+                        <!-- Contenido Tab 5 -->
+                        <div class="tab-pane fade" id="tabla-casa-4">
+                            <!-- Estado general de Casa 4 -->
+                            <div class="row justify-content-center py-4">
+                                <div class="col-xl-4 col-lg-4 col-md-4 col-12 mb-2 mb-md-0">
+                                    <div class="producto text-center">
+                                        <h6 class="tx-gris">Propietario</h6>
+                                        <h2 class="tx-negro">Héctor Chorlango</h2>
+                                    </div>
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-md-4 col-6">     
+                                    <div class="producto text-center">
+                                        <h6 class="tx-gris">Pagos</h6>
+                                        <h2 class="tx-negro" id="general_casa4"></h2>
+                                    </div>
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-md-4 col-6">
+                                    <div class="producto text-center">
+                                        <h6 class="tx-gris">Saldo total</h6>
+                                        <h2 class="tx-negro" id="saldo_total_casa4"></h2>
+                                    </div>
+                                </div>
+                            </div>  
+                            <!-- Tabla de Casa 4 -->
+                            <div class="table-responsive mt-4">
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th class="tx-bold" scope="col">Año</th>
+                                        <th class="tx-bold" scope="col">Mes</th>
+                                        <th class="tx-bold" scope="col">Descripción</th>
+                                        <th class="tx-bold" scope="col">Fecha</th>
+                                        <th class="tx-bold text-right" scope="col">Cuota</th>
+                                        <th class="tx-bold text-right" scope="col">Pago</th>
+                                        <th class="tx-bold text-right" scope="col">Saldo</th>
+                                        <th class="tx-bold text-center" scope="col">Estado</th>
+                                        <th class="tx-bold text-center" scope="col">Comprobante</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="casa4"></tbody>
+                                </table>
+                            </div>  
+                        </div>
+                        
+                        <!-- Mensaje en caso de que no existan datos por filtro -->
+                        <span id="mensajeNoDatos" style="display:none; text-align: center;">
+                            <img src="img/sin-datos.gif" width="320px">
+                            <p class="pt-3">No hay datos que mostrar.</p>
+                        </span>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Comprobantes por WhatsApp -->
+        <footer class="ayuda">
+            <div class="row justify-content-center text-center">
+                <div class="container">
+                    <div class="row justify-content-center align-items-center text-center">
+                        <!-- Frase -->
+                        <div class="col-lg-7 col-md-6 col-12">
+                            <h5 class="tx-negro mb-md-0 mb-4">¿Quieres compartir tu comprobante de pago?</h5>
+                        </div>
+                        <!-- Botón -->
+                        <div class="col-lg-3 col-md-4 col-10">
+                            <a href="https://api.whatsapp.com/send?phone=593992568518&text=¡Hola Victor! 👋🏼 Quiero compartir mi comprobante de pago. Soy propietario de la Casa N° " target="blank" class="btn bt-comprar mt-0">
+                                <img src="img/whatsapp.svg" class="mr-2 pb-1" width="20px">
+                                Envíame aquí
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+         <!-- Modales con dodumentos del conjunto -->
+         <div class="row" id="documentos"></div>
+
+          <!-- Modales con dodumentos de casa 1 -->
+          <div class="row" id="documentos1"></div>
+
+          <!-- Modales con dodumentos de casa 2 -->
+          <div class="row" id="documentos2"></div>
+
+          <!-- Modales con dodumentos de casa 3 -->
+          <div class="row" id="documentos3"></div>
+
+          <!-- Modales con dodumentos de casa 4 -->
+          <div class="row" id="documentos4"></div>
+
+        <!-- Funcionalidad de Precarga -->
+        <script>
+            window.onload = function(){
+                // Retraso adicional de 0.48 segundo (480 milisegundos)
+                setTimeout(function() {
+                    var cargar = document.getElementById('cargar');
+                    cargar.style.opacity = '0';
+                    cargar.style.display = 'none';
+                    }, 520);
+            }
+        </script>
+
+        <!-- Funcionalidad de Filtro -->
+        <script>
+            function filtrarDatos() {
+                const anoSeleccionado = document.getElementById('anios').value;
+                const mesSeleccionado = document.getElementById('meses').value;
+
+                // Obtener todas las filas de las tablas
+                const filas = document.querySelectorAll("#conjunto tr, #casa1 tr, #casa2 tr, #casa3 tr, #casa4 tr");
+                
+                let filasVisibles = 0;  // Contador para saber cuántas filas están visibles
+
+                filas.forEach(fila => {
+                    // Obtener el año y mes de la fila
+                    const anoFila = fila.querySelector("td:nth-child(1)")?.textContent.trim();
+                    const mesFila = fila.querySelector("td:nth-child(2)")?.textContent.trim();
+
+                    // Comprobar si la fila debe mostrarse u ocultarse
+                    let mostrarFila = true;
+
+                    // Si hay un año seleccionado, solo mostrar las filas con el mismo año
+                    if (anoSeleccionado && anoSeleccionado !== anoFila) {
+                        mostrarFila = false;
+                    }
+
+                    // Si hay un mes seleccionado, solo mostrar las filas con el mismo mes
+                    if (mesSeleccionado && mesSeleccionado !== mesFila) {
+                        mostrarFila = false;
+                    }
+
+                    // Mostrar o ocultar la fila según la condición
+                    if (mostrarFila) {
+                        fila.style.display = ""; // Mostrar la fila
+                        filasVisibles++; // Incrementamos el contador de filas visibles
+                    } else {
+                        fila.style.display = "none"; // Ocultar la fila
+                    }
+                });
+
+                // Verificar si hay filas visibles o no
+                const mensajeNoDatos = document.getElementById('mensajeNoDatos');
+                if (filasVisibles === 0) {
+                    mensajeNoDatos.style.display = "block";  // Mostrar mensaje de "No hay datos"
+                } else {
+                    mensajeNoDatos.style.display = "none";   // Ocultar mensaje si hay filas visibles
+                }
+            }
+        </script>
+
+        <!-- Funcionalidad de Modal -->
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+        <!-- Google Sheets API y script de catálogo -->
+        <script src="https://apis.google.com/js/api.js"></script>
+
+        <!-- Funcionalidad de replicar componentes -->
+        <script src="js/reporte.js"></script>
+    </body>
+</html>
