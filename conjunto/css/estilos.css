@@ -232,7 +232,7 @@
         }
         select {
             appearance: none;
-            background-image: url(/img/flecha-abajo.svg);
+            background-image: url(img/flecha-abajo.svg);
             background-repeat: no-repeat;
             background-position: top 4px right 4px; 
             background-size: 28px;
@@ -386,7 +386,7 @@
         }
         .fondo {
             padding: 20px 40px;
-            background-image: url(/img/fondo.jpeg);
+            background-image: url(img/fondo.jpeg);
             background-position: center;
             background-size: cover;
             background-repeat: no-repeat;
