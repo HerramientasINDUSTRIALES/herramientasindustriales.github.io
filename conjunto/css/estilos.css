@@ -661,6 +661,7 @@
         }
         .foto-detalle {
             max-width: 400px;
+            max-height: 520px;
         }
         .modal-fijo {
             text-align: center;
