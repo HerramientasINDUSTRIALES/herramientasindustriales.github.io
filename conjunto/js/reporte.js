@@ -27,7 +27,7 @@ function initClient() {
 function loadSheetData1() {
     gapi.client.sheets.spreadsheets.values.get({
         spreadsheetId: SPREADSHEET_ID,
-        range: 'Conjunto!A3:Y22', // Se indica que lea a partir de la tercera fila de la columna A hasta la fila 22 de la columna Y
+        range: 'Conjunto!A3:Y39', // Se indica que lea a partir de la tercera fila de la columna A hasta la fila 39 de la columna Y
     }).then((response) => {
         // Obtiene los datos de la respuesta
         const sheetData = response.result.values;
@@ -368,17 +368,17 @@ function loadSheetData2() {
     }).then(function(response) {
       const values = response.result.values;
 
-        const ingresos = values[22][9];
-        const gastos = values[22][8];
-        const diferencia = values[22][10];
-        const saldo_total_casa1 = values[22][13];
-        const general_casa1 = values[22][14];
-        const saldo_total_casa2 = values[22][16];
-        const general_casa2 = values[22][17];
-        const saldo_total_casa3 = values[22][19];
-        const general_casa3 = values[22][20];
-        const saldo_total_casa4 = values[22][22];
-        const general_casa4 = values[22][23];
+        const ingresos = values[39][9];
+        const gastos = values[39][8];
+        const diferencia = values[39][10];
+        const saldo_total_casa1 = values[39][13];
+        const general_casa1 = values[39][14];
+        const saldo_total_casa2 = values[39][16];
+        const general_casa2 = values[39][17];
+        const saldo_total_casa3 = values[39][19];
+        const general_casa3 = values[39][20];
+        const saldo_total_casa4 = values[39][22];
+        const general_casa4 = values[39][23];
   
         // Actualizar los elementos HTML con los textos obtenidos
         document.getElementById('ingresos').innerText = ingresos;
